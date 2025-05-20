@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Pod Talk - Free Bootstrap 5 CSS Template</title>
+        <title>Pod Talk - Listing Page</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
         <link href="css/templatemo-pod-talk.css" rel="stylesheet">
-        
 <!--
 
 TemplateMo 584 Pod Talk
@@ -57,12 +56,12 @@ https://templatemo.com/tm-584-pod-talk
     
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                </button>
+                    </button>
     
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.html">Home</a>
+                                <a class="nav-link" href="index.html">Home</a>
                             </li>
 
                             <li class="nav-item">
@@ -73,7 +72,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="listing-page.html">Listing Page</a></li>
+                                    <li><a class="dropdown-item active" href="listing-page.html">Listing Page</a></li>
 
                                     <li><a class="dropdown-item" href="detail-page.html">Detail Page</a></li>
                                 </ul>
@@ -85,190 +84,28 @@ https://templatemo.com/tm-584-pod-talk
                         </ul>
 
                         <div class="ms-4">
-                            <a href="#section_3" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
+                            <a href="#section_2" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
                         </div>
                     </div>
                 </div>
             </nav>
             
 
-            <section class="hero-section">
+             <header class="site-header d-flex flex-column justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-12 col-12">
-                            <div class="text-center mb-5 pb-2">
-                                <h1 class="text-white">Listen to Pod Talk</h1>
+                        <div class="col-lg-12 col-12 text-center">
 
-                                <p class="text-white">Listen it everywhere. Explore your fav podcasts.</p>
-
-                                <a href="#section_2" class="btn custom-btn smoothscroll mt-3">Start listening</a>
-                            </div>
-
-                            <div class="owl-carousel owl-theme">
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/smiling-business-woman-with-folded-hands-against-white-wall-toothy-smile-crossed-arms.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">
-                                            Candice
-                                            <img src="images/verified.png" class="owl-carousel-verified-image img-fluid" alt="">
-                                        </h4>
-
-                                        <span class="badge">Storytelling</span>
-
-                                        <span class="badge">Business</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-twitter"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-facebook"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/handsome-asian-man-listening-music-through-headphones.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">
-                                            William
-                                            <img src="images/verified.png" class="owl-carousel-verified-image img-fluid" alt="">
-                                        </h4>
-
-                                        <span class="badge">Creative</span>
-
-                                        <span class="badge">Design</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-twitter"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-facebook"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-pinterest"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/cute-smiling-woman-outdoor-portrait.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">Taylor</h4>
-
-                                        <span class="badge">Modeling</span>
-
-                                        <span class="badge">Fashion</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-twitter"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-facebook"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-pinterest"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/man-portrait.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">Nick</h4>
-
-                                        <span class="badge">Acting</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-instagram"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-youtube"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/woman-posing-black-dress-medium-shot.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">
-                                            Elsa
-                                            <img src="images/verified.png" class="owl-carousel-verified-image img-fluid" alt="">
-                                        </h4>
-
-                                        <span class="badge">Influencer</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-instagram"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-youtube"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="owl-carousel-info-wrap item">
-                                    <img src="images/profile/smart-attractive-asian-glasses-male-standing-smile-with-freshness-joyful-casual-blue-shirt-portrait-white-background.jpg" class="owl-carousel-image img-fluid" alt="">
-
-                                    <div class="owl-carousel-info">
-                                        <h4 class="mb-2">Chan</h4>
-
-                                        <span class="badge">Education</span>
-                                    </div>
-
-                                    <div class="social-share">
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-linkedin"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <h2 class="mb-0">Listing Page</h2>
                         </div>
 
                     </div>
                 </div>
-            </section>
+            </header>
 
 
-            <section class="latest-podcast-section section-padding pb-0" id="section_2">
+            <section class="latest-podcast-section section-padding" id="section_2">
                 <div class="container">
                     <div class="row justify-content-center">
 
@@ -434,91 +271,28 @@ https://templatemo.com/tm-584-pod-talk
                             </div>
                         </div>
 
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="topics-section section-padding pb-0" id="section_3">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-12">
-                            <div class="section-title-wrap mb-5">
-                                <h4 class="section-title">Topics</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block custom-block-overlay">
-                                <a href="detail-page.html" class="custom-block-image-wrap">
-                                    <img src="images/topics/physician-consulting-his-patient-clinic.jpg" class="custom-block-image img-fluid" alt="">
-                                </a>
-
-                                <div class="custom-block-info custom-block-overlay-info">
-                                    <h5 class="mb-1">
-                                        <a href="listing-page.html">
-                                            Productivity
+                        <div class="col-lg-4 col-12 mx-auto">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination pagination-lg justify-content-center mt-5">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
                                         </a>
-                                    </h5>
+                                    </li>
 
-                                    <p class="badge mb-0">50 Episodes</p>
-                                </div>
-                            </div>
-                        </div>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
 
-                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block custom-block-overlay">
-                                <a href="detail-page.html" class="custom-block-image-wrap">
-                                    <img src="images/topics/repairman-doing-air-conditioner-service.jpg" class="custom-block-image img-fluid" alt="">
-                                </a>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
 
-                                <div class="custom-block-info custom-block-overlay-info">
-                                    <h5 class="mb-1">
-                                        <a href="listing-page.html">
-                                            Technician
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
                                         </a>
-                                    </h5>
-
-                                    <p class="badge mb-0">12 Episodes</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block custom-block-overlay">
-                                <a href="detail-page.html" class="custom-block-image-wrap">
-                                    <img src="images/topics/woman-practicing-yoga-mat-home.jpg" class="custom-block-image img-fluid" alt="">
-                                </a>
-
-                                <div class="custom-block-info custom-block-overlay-info">
-                                    <h5 class="mb-1">
-                                        <a href="listing-page.html">
-                                            Mindfullness
-                                        </a>
-                                    </h5>
-
-                                    <p class="badge mb-0">35 Episodes</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block custom-block-overlay">
-                                <a href="detail-page.html" class="custom-block-image-wrap">
-                                    <img src="images/topics/delicious-meal-with-sambal-arrangement.jpg" class="custom-block-image img-fluid" alt="">
-                                </a>
-
-                                <div class="custom-block-info custom-block-overlay-info">
-                                    <h5 class="mb-1">
-                                        <a href="listing-page.html">
-                                            Cooking
-                                        </a>
-                                    </h5>
-
-                                    <p class="badge mb-0">12 Episodes</p>
-                                </div>
-                            </div>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
 
                     </div>
@@ -526,7 +300,7 @@ https://templatemo.com/tm-584-pod-talk
             </section>
 
 
-            <section class="trending-podcast-section section-padding">
+            <section class="trending-podcast-section section-padding pt-0">
                 <div class="container">
                     <div class="row">
 
@@ -700,7 +474,7 @@ https://templatemo.com/tm-584-pod-talk
         </main>
 
 
-        <footer class="site-footer">   
+        <footer class="site-footer">
             <div class="container">
                 <div class="row">
 
@@ -801,7 +575,6 @@ https://templatemo.com/tm-584-pod-talk
                 </div>
             </div>
         </footer>
-
 
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -11,7 +12,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('books.index');
+        return view('user.books.index');
     }
 
     /**
@@ -35,7 +36,7 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        return view('books.show');
+        return view('user.books.show');
     }
 
     /**

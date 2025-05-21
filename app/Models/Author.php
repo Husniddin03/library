@@ -15,8 +15,11 @@ class Author extends Model
         return $this->hasMany(Book::class);
     }
 
-    public function authorImgs()
+    // app/Models/Author.php
+
+    public function authorImg()
     {
-        return $this->hasMany(AuthorImg::class);
+        return $this->hasOne(\App\Models\AuthorImg::class);
     }
+
 }

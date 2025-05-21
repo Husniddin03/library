@@ -8,6 +8,7 @@ return new class extends Migration {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('path');
             $table->text('bio')->nullable();
             $table->integer('pages')->nullable();
             $table->unsignedBigInteger('author_id');

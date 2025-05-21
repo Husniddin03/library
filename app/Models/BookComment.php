@@ -11,4 +11,9 @@ class BookComment extends Model
     protected $fillable = ['user_id', 'book_id', 'comment'];
 
     public $timestamps = false;
+    
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

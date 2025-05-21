@@ -11,5 +11,9 @@ class BookSaved extends Model
     protected $fillable = ['user_id', 'book_id'];
 
     public $timestamps = false;
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
 

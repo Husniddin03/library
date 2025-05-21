@@ -11,4 +11,9 @@ class BookAudio extends Model
     protected $fillable = ['book_id', 'book_audio', 'audio_time'];
 
     public $timestamps = false;
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

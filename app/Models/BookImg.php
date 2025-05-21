@@ -11,5 +11,10 @@ class BookImg extends Model
     protected $fillable = ['book_id', 'book_img'];
 
     public $timestamps = false;
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
 

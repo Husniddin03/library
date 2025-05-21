@@ -11,4 +11,9 @@ class BookCategory extends Model
     protected $fillable = ['book_id', 'book_category'];
 
     public $timestamps = false;
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

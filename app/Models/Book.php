@@ -37,7 +37,7 @@ class Book extends Model
 
     public function images()
     {
-        return $this->hasMany(BookImg::class);
+        return $this->hasOne(BookImg::class);
     }
 
     public function categories()

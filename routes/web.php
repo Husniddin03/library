@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\User\UserController as UserUserController;
+use App\Http\Controllers\User\AuthorController as UserAuthorController;
+use App\Http\Controllers\User\BookController as UserBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,19 +22,25 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('user.about');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('user.contact');
 });
 
 
 
-Route::resource('authors', AuthorController::class);
-Route::resource('books', BookController::class);
-Route::resource('users', UserController::class);
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserController::class);
+    Route::resource('authors', AuthorController::class);
+    Route::resource('books', BookController::class);
+});
+
+Route::resource('users', UserUserController::class);
+Route::resource('authors', UserAuthorController::class);
+Route::resource('books', UserBookController::class);

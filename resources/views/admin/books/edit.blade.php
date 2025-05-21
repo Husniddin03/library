@@ -12,6 +12,16 @@
         </div>
 
         <div class="mb-3">
+            <label>Category</label>
+            <input type="text" name="category" value="{{ $book->category->book_category }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>File</label>
+            <input type="file" name="book_file" class="form-control">
+        </div>
+
+        <div class="mb-3">
             <label>Bio</label>
             <textarea name="bio" class="form-control" required>{{ $book->bio }}</textarea>
         </div>

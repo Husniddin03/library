@@ -8,13 +8,14 @@ use App\Models\Book;
 use App\Models\Author;
 use App\Models\BookImg;
 use App\Models\BookAudio;
+use App\Models\BookCategory;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::with(['author', 'images', 'audio'])->get();
+        $books = Book::with(['author', 'images', 'audio', 'category'])->get();
         return view('admin.books.index', compact('books'));
     }
 
@@ -28,6 +29,8 @@ class BookController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'category' => 'required',
+            'book_file' => 'required|file',
             'bio' => 'required',
             'pages' => 'required|integer',
             'author_id' => 'required|exists:authors,id',
@@ -35,11 +38,21 @@ class BookController extends Controller
             'book_audio' => 'nullable|mimes:mp3,wav,m4a|max:100000',
             'audio_time' => 'nullable|date_format:H:i:s',
         ]);
-        $book = Book::create([
-            'name' => $request->name,
-            'bio' => $request->bio,
-            'pages' => $request->pages,
-            'author_id' => $request->author_id,
+
+        if ($request->hasFile('book_file')){
+            $path = $request->file('book_file')->store('books/files', 'public');
+            $book = Book::create([
+                'name' => $request->name,
+                'bio' => $request->bio,
+                'path' => $path,
+                'pages' => $request->pages,
+                'author_id' => $request->author_id,
+            ]);
+        }
+
+        BookCategory::create([
+            'book_id' => $book->id,
+            'book_category' => $request->category,
         ]);
 
         // Save image
@@ -66,7 +79,7 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        $book->load(['author', 'images', 'audio']);
+        $book->load(['author', 'images', 'audio', 'category', 'likes', 'comments', 'savedBooks', 'downloads']);
         return view('admin.books.show', compact('book'));
     }
 
@@ -138,6 +151,10 @@ class BookController extends Controller
         if ($book->audio) {
             Storage::disk('public')->delete($book->audio->book_audio);
             $book->audio->delete();
+        }
+
+        if ($book->path) {
+            Storage::disk('public')->delete($book->path);
         }
 
         $book->delete();

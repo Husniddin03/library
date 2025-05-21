@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['name', 'bio', 'pages', 'author_id'];
+    protected $fillable = ['name', 'path', 'bio', 'pages', 'author_id'];
 
     public $timestamps = false;
 
@@ -40,13 +40,13 @@ class Book extends Model
         return $this->hasOne(BookImg::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(BookCategory::class);
+        return $this->hasOne(BookCategory::class);
     }
 
     public function downloads()
     {
-        return $this->hasOne(BookDownload::class);
+        return $this->hasMany(BookDownload::class);
     }
 }

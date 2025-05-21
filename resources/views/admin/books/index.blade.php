@@ -7,7 +7,9 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Author</th>
                 <th>Image</th>
                 <th>Audio</th>
@@ -17,7 +19,9 @@
         <tbody>
             @foreach ($books as $book)
                 <tr>
+                    <td>{{ $book->id }}</td>
                     <td>{{ $book->name }}</td>
+                    <td>{{ $book->category->book_category }}</td>
                     <td>{{ $book->author->name }}</td>
                     <td>
                         @if ($book->images)
@@ -25,12 +29,14 @@
                         @endif
                     </td>
                     <td>
-                        @if ($book->bookAudio)
+                        @if ($book->audio)
                             <audio controls>
-                                <source src="{{ asset('storage/' . $book->audio->book_audio) }}">
+                                <source src="horse.ogg" type="audio/ogg">
+                                <source src="{{ asset('storage/' . $book->audio->book_audio) }}" type="audio/mpeg">
                             </audio>
                         @endif
                     </td>
+
                     <td>
                         <a href="{{ route('admin.books.show', $book) }}" class="btn btn-info btn-sm">Show</a>
                         <a href="{{ route('admin.books.edit', $book) }}" class="btn btn-warning btn-sm">Edit</a>

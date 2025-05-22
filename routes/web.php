@@ -41,6 +41,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('books', BookController::class);
 });
 
+Route::post('users/login', [UserUserController::class, 'login'])->name('users.login');
+
 Route::resource('users', UserUserController::class);
 Route::resource('authors', UserAuthorController::class);
 Route::resource('books', UserBookController::class);

@@ -1,52 +1,66 @@
-
-  (function ($) {
-  
-  "use strict";
+(function ($) {
+    "use strict";
 
     // MENU
-    $('.navbar-collapse a').on('click',function(){
-      $(".navbar-collapse").collapse('hide');
-    });
-    
-    // CUSTOM LINK
-    $('.smoothscroll').click(function(){
-      var el = $(this).attr('href');
-      var elWrapped = $(el);
-      var header_height = $('.navbar').height();
-  
-      scrollToDiv(elWrapped,header_height);
-      return false;
-  
-      function scrollToDiv(element,navheight){
-        var offset = element.offset();
-        var offsetTop = offset.top;
-        var totalScroll = offsetTop-0;
-  
-        $('body,html').animate({
-        scrollTop: totalScroll
-        }, 300);
-      }
+    $(".navbar-collapse a").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
     });
 
-    $('.owl-carousel').owlCarousel({
+    // CUSTOM LINK
+    $(".smoothscroll").click(function () {
+        var el = $(this).attr("href");
+        var elWrapped = $(el);
+        var header_height = $(".navbar").height();
+
+        scrollToDiv(elWrapped, header_height);
+        return false;
+
+        function scrollToDiv(element, navheight) {
+            var offset = element.offset();
+            var offsetTop = offset.top;
+            var totalScroll = offsetTop - 0;
+
+            $("body,html").animate(
+                {
+                    scrollTop: totalScroll,
+                },
+                300
+            );
+        }
+    });
+
+    $(".owl-carousel").owlCarousel({
         center: true,
         loop: true,
         margin: 30,
         autoplay: true,
         responsiveClass: true,
-        responsive:{
-            0:{
+        responsive: {
+            0: {
                 items: 2,
             },
-            767:{
+            767: {
                 items: 3,
             },
-            1200:{
+            1200: {
                 items: 4,
-            }
-        }
+            },
+        },
     });
-  
-  })(window.jQuery);
+})(window.jQuery);
 
+function formid(id) {
+    if (id) {
+        document.getElementById("register").hidden = true;
+        document.getElementById("login").hidden = false;
 
+        document.getElementById("reg").classList.remove("bg-primary");
+        document.getElementById("log").classList.add("bg-primary");
+    } else {
+        document.getElementById("register").hidden = false;
+        document.getElementById("login").hidden = true;
+
+        document.getElementById("log").classList.remove("bg-primary");
+        document.getElementById("reg").classList.add("bg-primary"); // fixed: was 'add'
+    }
+}

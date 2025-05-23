@@ -7,7 +7,7 @@
 
                 <div class="col-lg-12 col-12 text-center">
 
-                    <h2 class="mb-0">About Pod</h2>
+                    <h2 class="mb-0">About Us</h2>
                 </div>
 
             </div>
@@ -25,51 +25,46 @@
                             <h4 class="section-title">Our story</h4>
                         </div>
 
-                        <p>Pod Talk HTML CSS Template is made by Bootstrap v5.2.2 framework. You are allowed to modify and
-                            use this template for your business websites.</p>
+                        <p>In 2022, I became a first-year student at the Samarkand branch of the Tashkent University of Information Technologies. At that time, the only things I truly loved and understood were mathematics and a bit of physics — those were the subjects that sparked my interest and shaped my early academic path.</p>
 
-                        <p>You are not allowed to redistribute the downloadable template ZIP file on any other website
-                            without a permission. Please contact TemplateMo website for further information. Thank you.</p>
+                        <p>Now, in 2025, I am a third-year student at the same university. Over the past few years, I’ve learned the fundamentals of several programming languages. What was once just curiosity has now become my passion — programming has turned into the meaning of my life, the foundation of my dreams, and the source of my daily motivation.</p>
 
-                        <img src="images/medium-shot-young-people-recording-podcast.jpg" class="about-image mt-5 img-fluid"
+                        <img src="images/tatusf.png" class="about-image mt-5 img-fluid"
                             alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-12 col-12">
                     <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">Meet podcaters</h4>
+                        <h4 class="section-title">Our Team</h4>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="team-thumb bg-white shadow-lg">
-                        <img src="images/profile/cute-smiling-woman-outdoor-portrait.jpg" class="about-image img-fluid"
+                        <img src="images/profile/handsome-asian-man-listening-music-through-headphones.jpg" class="about-image img-fluid"
                             alt="">
 
                         <div class="team-info">
                             <h4 class="mb-2">
-                                Taylor
+                                Husniddin
                                 <img src="images/verified.png" class="verified-image img-fluid" alt="">
                             </h4>
 
-                            <span class="badge">Modeling</span>
-
-                            <span class="badge">Fashion</span>
+                            <span class="badge">Backend</span>
+                            <span class="badge">PHP</span>
+                            <span class="badge">Frontend</span>
+                            <span class="badge">MySQL</span>
                         </div>
 
                         <div class="social-share">
                             <ul class="social-icon">
                                 <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                    <a href="https://t.me/Hmatritsa" class="social-icon-link bi-telegram"></a>
                                 </li>
 
                                 <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-facebook"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-pinterest"></a>
+                                    <a href="mailto:husniddin13124041@gmail.com" class="social-icon-link bi-envelope"></a>
                                 </li>
                             </ul>
                         </div>
@@ -83,13 +78,14 @@
 
                         <div class="team-info">
                             <h4 class="mb-2">
-                                William
+                                Diyorbek
                                 <img src="images/verified.png" class="verified-image img-fluid" alt="">
                             </h4>
 
-                            <span class="badge">Creative</span>
-
-                            <span class="badge">Design</span>
+                            <span class="badge">Backend</span>
+                            <span class="badge">PHP</span>
+                            <span class="badge">Frontend</span>
+                            <span class="badge">MySQL</span>
                         </div>
 
                         <div class="social-share">
@@ -117,11 +113,13 @@
 
                         <div class="team-info">
                             <h4 class="mb-2">
-                                Chan
+                                Habibullo
                                 <img src="images/verified.png" class="verified-image img-fluid" alt="">
                             </h4>
 
-                            <span class="badge">Education</span>
+                            <span class="badge">Android</span>
+                            <span class="badge">Java</span>
+                            <span class="badge">C++</span>
                         </div>
 
                         <div class="social-share">
@@ -145,13 +143,13 @@
 
                         <div class="team-info">
                             <h4 class="mb-2">
-                                Candice
+                                Shaxobiddin
                                 <img src="images/verified.png" class="verified-image img-fluid" alt="">
                             </h4>
 
-                            <span class="badge">Storytelling</span>
+                            <span class="badge">Cybersecurity</span>
 
-                            <span class="badge">Business</span>
+                            <span class="badge">Python</span>
                         </div>
 
                         <div class="social-share">

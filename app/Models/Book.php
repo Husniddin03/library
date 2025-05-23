@@ -47,6 +47,6 @@ class Book extends Model
 
     public function downloads()
     {
-        return $this->hasMany(BookDownload::class);
+        return $this->hasOne(BookDownload::class);
     }
 }

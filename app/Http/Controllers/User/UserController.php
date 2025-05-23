@@ -5,39 +5,31 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        return view('user.users.index');
+        $users = User::all();
+        return view('user.users.index', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('user.users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
 
         $user = User::create([
             'name' => $request->name,
@@ -45,42 +37,58 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Auth::login($user); 
-        return redirect('user.index'); 
+        Auth::login($user);
+
+        return redirect('/books');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        return view('user.users.show');
+        $user = User::findOrFail($id);
+        return view('user.users.show', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user) {
+    public function edit(User $user)
+    {
         return view('user.users.edit', compact('user'));
     }
 
-    public function update(Request $request, User $user) {
-        $user->update($request->only('name', 'email', 'password')); 
-        return redirect()->route('users.index');
-    }
-
-    public function destroy(User $user) {
-        $user->delete();
-        return back();
-    }
-
-     public function login(Request $request)
+    public function update(Request $request, User $user)
     {
-        $credentials = $request->only('email', 'password');
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => "required|string|email|max:255|unique:users,email,{$user->id}",
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'Foydalanuvchi yangilandi');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return back()->with('success', 'Foydalanuvchi o‘chirildi');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); 
-            return redirect()->intended('/user.index'); 
+            $request->session()->regenerate();
+            return redirect()->intended('/books');
         }
 
         return back()->withErrors([
@@ -91,9 +99,10 @@ class UserController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/users.create');
+        return redirect()->route('users.create');
     }
 }

@@ -79,9 +79,16 @@ https://templatemo.com/tm-584-pod-talk
                         </li>
                     </ul>
 
-                    <div class="ms-4">
-                        <a href="/users/create" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
-                    </div>
+
+                    @if(auth()->check())
+                        <div class="ms-4">
+                            <a href="#" class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
+                        </div>
+                    @else
+                        <div class="ms-4">
+                            <a href="/users/create" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </nav>

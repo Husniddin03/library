@@ -7,7 +7,7 @@
 
                 <div class="col-lg-12 col-12 text-center">
 
-                    <h2 class="mb-0">Detail Page</h2>
+                    <h2 class="mb-0">Time To Read</h2>
                 </div>
 
             </div>
@@ -21,14 +21,14 @@
 
                 <div class="col-lg-10 col-12">
                     <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">Daily talk</h4>
+                        <h4 class="section-title">This Book</h4>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-3 col-12">
                             <div class="custom-block-icon-wrap">
                                 <div class="custom-block-image-wrap custom-block-image-detail-page">
-                                    <img src="{{ asset('images/podcast/11683425_4790593.jpg') }}"
+                                    <img src="{{ asset('storage/'. $book->images->book_img) }}"
                                         class="custom-block-image img-fluid" alt="">
                                 </div>
                             </div>
@@ -40,53 +40,42 @@
                                     <small class="me-4">
                                         <a href="#">
                                             <i class="bi-play"></i>
-                                            Play now
+                                            Audio Play now
                                         </a>
                                     </small>
 
                                     <small>
                                         <i class="bi-clock-fill custom-icon"></i>
-                                        50 Minutes
+                                        {{ $book->audio ? $book->audio->audio_time: '00:00' }}
                                     </small>
 
-                                    <small class="ms-auto">Episode <span class="badge">15</span></small>
+                                    <small class="ms-auto">Pages <span class="badge"> {{ $book->pages }} </span></small>
                                 </div>
 
-                                <h2 class="mb-2">Modern Vintage</h2>
+                                <h2 class="mb-2">{{ $book->name }}</h2>
 
-                                <p>What is Content Marketing? If you are wondering what content marketing is all about, this
-                                    is the place to start.</p>
-
-                                <p>You are not allowed to redistribute this template ZIP file on any other template
-                                    collection website. Please contact TemplateMo for more information.</p>
-
-                                <p>Pod Talk HTML CSS Template is made by Bootstrap v5.2.2 framework. You are allowed to
-                                    modify and use this template for your business websites.</p>
+                                <p>{{ $book->bio }}</p>
 
                                 <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                     <div class="d-flex mb-3 mb-lg-0 mb-md-0">
-                                        <img src="{{ asset('images/profile/woman-posing-black-dress-medium-shot.jpg') }}"
+                                        <img src="{{ asset('storage/'. $book->author->authorImg->author_img) }}"
                                             class="profile-block-image img-fluid" alt="">
 
                                         <p>
-                                            Elsa
+                                            {{ $book->author->name }}
                                             <img src="{{ asset('images/verified.png') }}" class="verified-image img-fluid"
                                                 alt="">
-                                            <strong>Influencer</strong>
+                                            <strong>{{$book->category->book_category}}</strong>
                                         </p>
                                     </div>
 
                                     <ul class="social-icon ms-lg-auto ms-md-auto">
                                         <li class="social-icon-item">
-                                            <a href="#" class="social-icon-link bi-instagram"></a>
+                                            <a href="#" class="social-icon-link bi-book"></a>
                                         </li>
 
                                         <li class="social-icon-item">
-                                            <a href="#" class="social-icon-link bi-twitter"></a>
-                                        </li>
-
-                                        <li class="social-icon-item">
-                                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                            <a href="#" class="social-icon-link bi-info-circle"></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,183 +89,53 @@
     </section>
 
 
-    <section class="related-podcast-section section-padding">
+    <section id="comments" class="related-podcast-section section-padding">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-12 col-12">
                     <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">Related episodes</h4>
+                        <h4 class="section-title">Comments</h4>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
-                    <div class="custom-block custom-block-full">
-                        <div class="custom-block-image-wrap">
-                            <a href="detail-page.html">
-                                <img src="{{ asset('images/podcast/27376480_7326766.jpg') }}"
-                                    class="custom-block-image img-fluid" alt="">
-                            </a>
-                        </div>
-
-                        <div class="custom-block-info">
-                            <h5 class="mb-2">
-                                <a href="detail-page.html">
-                                    Vintage Show
-                                </a>
-                            </h5>
-
-                            <div class="profile-block d-flex">
-                                <img src="{{ asset('images/profile/woman-posing-black-dress-medium-shot.jpg') }}"
-                                    class="profile-block-image img-fluid" alt="">
-
-                                <p>Elsa
-                                    <strong>Influencer</strong>
-                                </p>
+                @auth
+                    <div class="col-lg-12 col-12 mb-4">
+                        <form action="{{ route('books.comment', $book->id) }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Add a comment</label>
+                                <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
                             </div>
-
-                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-
-                            <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <a href="#" class="bi-headphones me-1">
-                                    <span>100k</span>
-                                </a>
-
-                                <a href="#" class="bi-heart me-1">
-                                    <span>2.5k</span>
-                                </a>
-
-                                <a href="#" class="bi-chat me-1">
-                                    <span>924k</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="social-share d-flex flex-column ms-auto">
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-heart"></i>
-                            </a>
-
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-bookmark"></i>
-                            </a>
-                        </div>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
+                        </form>
                     </div>
-                </div>
+                @else
+                    <div class="col-lg-12 col-12 mb-4">
+                        <p>
+                            <a href="{{ route('users.create') }}">Log in</a> to add a comment.
+                        </p>
+                    </div>
+                @endauth
 
-                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
-                    <div class="custom-block custom-block-full">
-                        <div class="custom-block-image-wrap">
-                            <a href="detail-page.html">
-                                <img src="{{ asset('images/podcast/27670664_7369753.jpg') }}"
-                                    class="custom-block-image img-fluid" alt="">
-                            </a>
-                        </div>
-
-                        <div class="custom-block-info">
-                            <h5 class="mb-2">
-                                <a href="detail-page.html">
-                                    Vintage Show
-                                </a>
-                            </h5>
-
-                            <div class="profile-block d-flex">
-                                <img src="{{ asset('images/profile/cute-smiling-woman-outdoor-portrait.jpg') }}"
-                                    class="profile-block-image img-fluid" alt="">
-
+                @if($book->comments->isEmpty())
+                    <div class="col-lg-12 col-12">
+                        <p>No comments yet.</p>
+                    </div>
+                @else
+                    @foreach ($book->comments as $comment)
+                        <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-1">
+                            <div class="d-flex mb-3 mb-lg-0 mb-md-0">
                                 <p>
-                                    Taylor
-                                    <img src="{{ asset('images/verified.png') }}" class="verified-image img-fluid"
-                                        alt="">
-                                    <strong>Creator</strong>
+                                    {{ $comment->user->name }}
+                                    <strong>{{ $comment->comment }}</strong>
                                 </p>
                             </div>
-
-                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-
-                            <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <a href="#" class="bi-headphones me-1">
-                                    <span>100k</span>
-                                </a>
-
-                                <a href="#" class="bi-heart me-1">
-                                    <span>2.5k</span>
-                                </a>
-
-                                <a href="#" class="bi-chat me-1">
-                                    <span>924k</span>
-                                </a>
-                            </div>
                         </div>
+                    @endforeach
+                @endif
 
-                        <div class="social-share d-flex flex-column ms-auto">
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-heart"></i>
-                            </a>
 
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-bookmark"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-12">
-                    <div class="custom-block custom-block-full">
-                        <div class="custom-block-image-wrap">
-                            <a href="detail-page.html">
-                                <img src="{{ asset('images/podcast/12577967_02.jpg') }}"
-                                    class="custom-block-image img-fluid" alt="">
-                            </a>
-                        </div>
-
-                        <div class="custom-block-info">
-                            <h5 class="mb-2">
-                                <a href="detail-page.html">
-                                    Daily Talk
-                                </a>
-                            </h5>
-
-                            <div class="profile-block d-flex">
-                                <img src="{{ asset('images/profile/handsome-asian-man-listening-music-through-headphones.jpg') }}"
-                                    class="profile-block-image img-fluid" alt="">
-
-                                <p>
-                                    William
-                                    <img src="{{ asset('images/verified.png') }}" class="verified-image img-fluid"
-                                        alt="">
-                                    <strong>Vlogger</strong>
-                                </p>
-                            </div>
-
-                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-
-                            <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <a href="#" class="bi-headphones me-1">
-                                    <span>100k</span>
-                                </a>
-
-                                <a href="#" class="bi-heart me-1">
-                                    <span>2.5k</span>
-                                </a>
-
-                                <a href="#" class="bi-chat me-1">
-                                    <span>924k</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="social-share d-flex flex-column ms-auto">
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-heart"></i>
-                            </a>
-
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-bookmark"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>

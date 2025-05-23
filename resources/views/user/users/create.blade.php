@@ -58,10 +58,10 @@
 
                             <div class="col-lg-12 col-12">
                                 <div class="form-floating">
-                                    <input type="password" name="confirm_password" id="confirm_password"
-                                        class="form-control" placeholder="Name" required="">
+                                    <input type="password" name="password_confirmation" id="password_confirmation"
+                                        class="form-control" placeholder="Confirm Password" required="">
 
-                                    <label for="confirm_password">Confirm Password</label>
+                                    <label for="password_confirmation">Confirm Password</label>
                                 </div>
                             </div>
 

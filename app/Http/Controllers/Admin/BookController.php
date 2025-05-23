@@ -116,7 +116,7 @@ class BookController extends Controller
                 Storage::disk('public')->delete($book->images->book_img);
                 $book->images->update(['book_img' => $path]);
             } else {
-                images::create(['book_id' => $book->id, 'book_img' => $path]);
+                BookImg::create(['book_id' => $book->id, 'book_img' => $path]);
             }
         }
 
@@ -130,7 +130,7 @@ class BookController extends Controller
                     'audio_time' => $request->audio_time,
                 ]);
             } else {
-                audio::create([
+                BookAudio::create([
                     'book_id' => $book->id,
                     'book_audio' => $audioPath,
                     'audio_time' => $request->audio_time,

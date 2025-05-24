@@ -19,19 +19,22 @@ class AdminController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-       $admin = Admin::where('email', $credentials['email'])->first();
+        $admin = Admin::where('email', $credentials['email'])->first();
+
         if ($admin && Hash::check($credentials['password'], $admin->password)) {
-            auth()->login($admin);
+            auth()->guard('admin')->login($admin);  // bu yerda 'admin' guard
             return redirect()->route('admins.index')->with('success', 'Tizimga kirildi!');
         }
 
         return redirect()->back()->withErrors(['email' => 'Email yoki parol noto\'g\'ri!']);
     }
+
     public function logout()
     {
-        auth()->logout();
-        return redirect()->route('admin.auth')->with('success', 'Tizimdan chiqildi!');
+        auth()->guard('admin')->logout();   // shu yerda ham 'admin' guard
+        return redirect()->route('admin.login')->with('success', 'Tizimdan chiqildi!');
     }
+
 
     public function index()
     {

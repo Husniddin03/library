@@ -21,7 +21,11 @@
                 </li>
                 <li class="nav-item"><a class="nav-link text-white" href="{{ route('admins.index') }}">Admins</a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.logout') }}">Logout</a>
+                <li class="nav-item">
+                    <form action="{{ route('admin.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link text-white p-3" style="text-decoration: none;">Logout</button>
+                    </form>
                 </li>
             </ul>
         </div>

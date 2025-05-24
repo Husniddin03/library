@@ -26,14 +26,13 @@ Route::get('/', [PageController::class, 'welcome'])->name('user.welcome');
 Route::get('/about', [PageController::class, 'about'])->name('user.about');
 Route::get('/contact', [PageController::class, 'contact'])->name('user.contact');
 
-Route::get('/auth', [AdminController::class, 'auth'])->name('admin.auth');
-Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::get('/admin/login', [AdminController::class, 'auth'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.loginn');
 
-Route::middleware('auth')->group(function () {
-    Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::middleware('auth:admin')->group(function () {
+    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-    Route::resource('admins', AdminController::class);
-
+    Route::resource('/admin/admins', AdminController::class);
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('users', UserController::class);
@@ -41,6 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('books', BookController::class);
     });
 });
+
 
 Route::post('users/login', [UserUserController::class, 'login'])->name('users.login');
 Route::post('users/logout', [UserController::class, 'logout'])->name('users.logout');

@@ -14,7 +14,7 @@
                     {{ $errors->first() }}
                 </div>
             @endif
-            <form method="POST" action="{{ route('admin.login') }}">
+            <form method="POST" action="{{ route('admin.loginn') }}">
                 @csrf
                 <div class="mb-3">
                     <label>Email:</label>

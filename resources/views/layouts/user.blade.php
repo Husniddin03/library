@@ -7,8 +7,9 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="keywords" content="kitoblar, o'qish, elektron kitob, vaqtni o'qish, onlayn kitoblar, o'qish vaqti, ta'lim, bilim, o'qish sayti">
 
-    <title>Pod Talk - Free Bootstrap 5 CSS Template</title>
+    <title>Time To Read</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +83,13 @@ https://templatemo.com/tm-584-pod-talk
 
                     @if (auth()->check())
                         <div class="ms-4">
+                            <a href="{{ route('books.saved', auth()->user()->id) }}"
+                                class="btn custom-btn custom-border-btn smoothscroll">
+                                <i class="bi-bookmark-fill"></i>
+                            </a>
+                        </div>
+
+                        <div class="ms-4">
                             <a href="{{ route('users.edit', auth()->user()->id) }}"
                                 class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
                         </div>
@@ -138,7 +146,7 @@ https://templatemo.com/tm-584-pod-talk
                 <div class="row align-items-center">
 
                     <div class="col-lg-2 col-md-3 col-12">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="{{ asset('images/logo.png') }}" class="logo-image img-fluid"
                                 alt="templatemo pod talk">
                         </a>

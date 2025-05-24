@@ -1,64 +1,26 @@
 @extends('layouts.user')
 
 @section('content')
-    <section class="hero-section">
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-12 col-12">
-                    <div class="text-center mb-5 pb-2">
-                        <h1 class="text-white">Read online</h1>
+                <div class="col-lg-12 col-12 text-center">
 
-                        <p class="text-white">Read it everywhere. Study your favorite stories.</p>
-
-                        <a href="#section_2" class="btn custom-btn smoothscroll mt-3">Start read</a>
-                    </div>
-
-                    <div class="owl-carousel owl-theme">
-                        @foreach ($authors as $author)
-                            <div class="owl-carousel-info-wrap item">
-                                <img src="{{ asset('storage/' . $author->authorImg->author_img) }}"
-                                    class="owl-carousel-image img-fluid" alt="">
-
-                                <div class="owl-carousel-info">
-                                    <h4 class="mb-2">
-                                        {{ $author->name }}
-                                        <img src="images/verified.png" class="owl-carousel-verified-image img-fluid"
-                                            alt="">
-                                    </h4>
-
-                                </div>
-
-                                <div class="social-share">
-                                    <ul class="social-icon">
-                                        <li class="social-icon-item">
-                                            <a href="{{ route('books.author', $author->id) }}#authorbooks"
-                                                class="social-icon-link bi-book"></a>
-                                        </li>
-
-                                        <li class="social-icon-item">
-                                            <a href="{{ route('books.author', $author->id) }}#authorinfo"
-                                                class="social-icon-link bi-info-circle"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                    <h2 class="mb-0">Saved Books Page</h2>
                 </div>
 
             </div>
         </div>
-    </section>
+    </header>
 
-
-    <section class="latest-podcast-section section-padding pb-0" id="section_2">
+    <section class="latest-podcast-section section-padding" id="section_2">
         <div class="container">
             <div class="row justify-content-center">
 
                 <div class="col-lg-12 col-12">
                     <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">Most recently uploadeds</h4>
+                        <h4 class="section-title">All books</h4>
                     </div>
                 </div>
 
@@ -98,7 +60,8 @@
                                     </a>
                                 </h5>
 
-                                <a href="{{ route('books.author', $author->id) }}#authorinfo" class="profile-block d-flex">
+                                <a href="{{ route('books.author', $book->author->id) }}#authorinfo"
+                                    class="profile-block d-flex">
                                     <img src="{{ asset('storage/' . $book->author->authorImg->author_img) }}"
                                         class="profile-block-image img-fluid" alt="">
 
@@ -203,47 +166,12 @@
                         </div>
                     </div>
                 @endforeach
-
-                <div class="col-lg-12 col-12 mt-4">
-                    <div class="text-center">
-                        <a href="/books" class="btn custom-btn">All books</a>
-                    </div>
-                </div>
-
+            </div>
+            <div class="col-lg-4 mt-4 mx-auto">
+                <nav aria-label="Page navigation example">
+                    {{ $books->links('pagination::bootstrap-4') }}
+                </nav>
             </div>
         </div>
     </section>
-
-
-    <section class="topics-section section-padding pb-0" id="section_3">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12">
-                    <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">Categories</h4>
-                    </div>
-                </div>
-
-                @foreach ($groupedCategories as $category)
-                    <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                        <div class="custom-block custom-block-overlay">
-                            <div class="custom-block-info custom-block-overlay-info">
-                                <h5 class="mb-1">
-                                    <a href="{{ route('books.category', $category->book_category) }}">
-                                        {{ $category->book_category }}
-                                    </a>
-                                </h5>
-
-                                <p class="badge mb-0">
-                                    {{ $category->total }} ta
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    </main>
 @endsection

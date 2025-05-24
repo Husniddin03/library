@@ -53,6 +53,7 @@ Route::get('books', [UserBookController::class, 'index'])->name('books.index');
 Route::get('books/{id}', [UserBookController::class, 'show'])->name('books.show');
 Route::get('books/author/{id}', [UserBookController::class, 'author'])->name('books.author');
 Route::get('books/category/{name}', [UserBookController::class, 'category'])->name('books.category');
+Route::get('books/saved/{id}', [UserBookController::class, 'saved'])->name('books.saved');
 Route::post('books/save{id}', [UserBookController::class, 'save'])->name('books.save');
 Route::post('books/unsave{id}', [UserBookController::class, 'unsave'])->name('books.unsave');
 

@@ -19,6 +19,20 @@ class BookController extends Controller
         return view('user.books.index', compact('books'));
     }
 
+    public function saved(string $id)
+    {
+        $bookIds = DB::table('book_saved')
+            ->where('user_id', $id)
+            ->pluck('book_id');
+
+        $books = Book::whereIn('id', $bookIds)
+            ->with(['author', 'images', 'audio', 'category'])
+            ->orderByDesc('id')
+            ->paginate(6);
+
+        return view('user.users.saved', compact('books'));
+    }
+
     public function show(string $id)
     {
         $book = Book::findOrFail($id);

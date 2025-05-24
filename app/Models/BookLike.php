@@ -16,4 +16,3 @@ class BookLike extends Model
         return $this->belongsTo(Book::class);
     }
 }
-

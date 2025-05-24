@@ -19,15 +19,15 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
 
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
 
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
-    <link href="{{asset('css/templatemo-pod-talk.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/templatemo-pod-talk.css') }}" rel="stylesheet">
 
     <!--
 
@@ -45,19 +45,19 @@ https://templatemo.com/tm-584-pod-talk
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand me-lg-5 me-0" href="/">
-                    <img src="{{asset('images/logo.png')}}" class="logo-image img-fluid" alt="templatemo pod talk">
+                    <img src="{{ asset('images/logo.png') }}" class="logo-image img-fluid" alt="templatemo pod talk">
                 </a>
 
-                <form action="{{route('books.search')}}" method="get" class="custom-form search-form flex-fill me-3" role="search">
+                <div class="custom-form search-form flex-fill me-3" role="search">
                     <div class="input-group input-group-lg">
-                        <input onkeyup="showResult(this.value)" name="search" type="search" class="form-control" id="search"
+                        <input name="search" type="search" class="form-control" id="search"
                             placeholder="Search Book" aria-label="Search">
-
                         <button type="submit" class="form-control" id="submit">
                             <i class="bi-search"></i>
                         </button>
                     </div>
-                </form>
+                    <div id="searchResult" class="list-group mt-1"></div>
+                </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,22 +71,24 @@ https://templatemo.com/tm-584-pod-talk
                         </li>
 
                         <li class="nav-item">
-                            <a id="about" class="nav-link" href="{{route('user.about')}}">About</a>
+                            <a id="about" class="nav-link" href="{{ route('user.about') }}">About</a>
                         </li>
 
                         <li class="nav-item">
-                            <a id="contact" class="nav-link" href="{{route('user.contact')}}">Contact</a>
+                            <a id="contact" class="nav-link" href="{{ route('user.contact') }}">Contact</a>
                         </li>
                     </ul>
 
 
-                    @if(auth()->check())
+                    @if (auth()->check())
                         <div class="ms-4">
-                            <a href="{{ route('users.edit', auth()->user()->id) }}" class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
+                            <a href="{{ route('users.edit', auth()->user()->id) }}"
+                                class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
                         </div>
                     @else
                         <div class="ms-4">
-                            <a href="/users/create" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
+                            <a href="/users/create" class="btn custom-btn custom-border-btn smoothscroll">Get
+                                started</a>
                         </div>
                     @endif
                 </div>
@@ -102,7 +104,8 @@ https://templatemo.com/tm-584-pod-talk
                     <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
                         <h6 class="site-footer-title mb-3">Contact</h6>
 
-                        <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> <span> <br>+998 (77) 025 26 77 <br> +998 (93) 129 13 12</span></p>
+                        <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> <span> <br>+998 (77) 025 26 77
+                                <br> +998 (93) 129 13 12</span></p>
 
                         <p>
                             <strong class="d-inline me-2">Email:</strong>
@@ -115,7 +118,8 @@ https://templatemo.com/tm-584-pod-talk
                         <h6 class="site-footer-title mb-3">Download Mobile</h6>
 
                         <div class="site-footer-thumb mb-4 pb-2">
-                            <div class="d-flex flex-wrap">There is no mobile app yet, but it is planned to be developed in the future. </div>
+                            <div class="d-flex flex-wrap">There is no mobile app yet, but it is planned to be developed
+                                in the future. </div>
                         </div>
 
                         <h6 class="site-footer-title mb-3">Social</h6>
@@ -135,7 +139,7 @@ https://templatemo.com/tm-584-pod-talk
 
                     <div class="col-lg-2 col-md-3 col-12">
                         <a class="navbar-brand" href="index.html">
-                            <img src="{{asset('images/logo.png')}}" class="logo-image img-fluid"
+                            <img src="{{ asset('images/logo.png') }}" class="logo-image img-fluid"
                                 alt="templatemo pod talk">
                         </a>
                     </div>
@@ -147,11 +151,11 @@ https://templatemo.com/tm-584-pod-talk
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="{{route('user.about')}}" class="site-footer-link">About</a>
+                                <a href="{{ route('user.about') }}" class="site-footer-link">About</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="{{route('user.contact')}}" class="site-footer-link">Contact</a>
+                                <a href="{{ route('user.contact') }}" class="site-footer-link">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -161,10 +165,10 @@ https://templatemo.com/tm-584-pod-talk
 
 
         <!-- JAVASCRIPT FILES -->
-        <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-        <script src="{{asset('js/custom.js')}}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
 
         <script>
             let path = window.location.pathname.split("/").filter(Boolean).pop();
@@ -172,9 +176,35 @@ https://templatemo.com/tm-584-pod-talk
             let activeLink = document.getElementById(path);
             if (activeLink) {
                 activeLink.classList.add("active");
-            } else if(path == null){
+            } else if (path == null) {
                 document.getElementById('home').classList.add("active");
             }
+
+            const searchInput = document.getElementById('search');
+            const resultDiv = document.getElementById('searchResult');
+
+            searchInput.addEventListener('keyup', function() {
+                const query = this.value;
+                if (query.length === 0) {
+                    resultDiv.innerHTML = '';
+                    return;
+                }
+
+                fetch(`/books/search/${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let html = '';
+                        if (data.length > 0) {
+                            data.forEach(book => {
+                                html +=
+                                    `<a href="/books/${book.id}" class="list-group-item list-group-item-action">${book.name}</a>`;
+                            });
+                        } else {
+                            html = '<div class="list-group-item">No results found</div>';
+                        }
+                        resultDiv.innerHTML = html;
+                    });
+            });
         </script>
 
 </body>

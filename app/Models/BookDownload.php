@@ -11,10 +11,9 @@ class BookDownload extends Model
     protected $fillable = ['book_id', 'count'];
 
     public $timestamps = false;
-    
+
     public function book()
     {
         return $this->belongsTo(Book::class);
     }
 }
-

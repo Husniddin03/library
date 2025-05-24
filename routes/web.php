@@ -47,7 +47,7 @@ Route::get('books/category/{name}', [UserBookController::class, 'category'])->na
 Route::post('books/save{id}', [UserBookController::class, 'save'])->name('books.save');
 Route::post('books/unsave{id}', [UserBookController::class, 'unsave'])->name('books.unsave');
 
-Route::get('/books/search', [UserBookController::class, 'search'])->name('books.search');
+Route::get('/books/search/{name}', [UserBookController::class, 'search'])->name('books.search');
 
 
 Route::resource('users', UserUserController::class);

@@ -21,5 +21,4 @@ class Author extends Model
     {
         return $this->hasOne(\App\Models\AuthorImg::class);
     }
-
 }

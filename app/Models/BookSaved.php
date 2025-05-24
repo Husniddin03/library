@@ -16,4 +16,3 @@ class BookSaved extends Model
         return $this->belongsTo(Book::class);
     }
 }
-

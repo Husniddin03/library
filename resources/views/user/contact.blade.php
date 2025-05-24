@@ -37,7 +37,8 @@
 
                         <p class="d-flex">
                             <strong class="d-inline me-4">Location:</strong>
-                            <span>Samarkand Branch of Tashkent University of Information Technologies, Samarkand, Uzbekistan</span>
+                            <span>Samarkand Branch of Tashkent University of Information Technologies, Samarkand,
+                                Uzbekistan</span>
                         </p>
                     </div>
                 </div>

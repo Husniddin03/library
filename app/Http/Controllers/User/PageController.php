@@ -16,8 +16,8 @@ class PageController extends Controller
         $authors = Author::all();
         $books = Book::orderBy('id', 'desc')->take(2)->get();
         $groupedCategories = BookCategory::select('book_category', DB::raw('COUNT(*) as total'))
-    ->groupBy('book_category')
-    ->get();
+            ->groupBy('book_category')
+            ->get();
 
         return view('user.welcome', compact('authors', 'books', 'groupedCategories'));
     }

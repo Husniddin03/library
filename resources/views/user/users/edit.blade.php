@@ -15,7 +15,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
-                    <form method="POST" action="{{ route('users.update', $user->id) }}" class="custom-form contact-form" role="form">
+                    <form method="POST" action="{{ route('users.update', $user->id) }}" class="custom-form contact-form"
+                        role="form">
                         @csrf
                         @method('PUT')
                         <div class="row">

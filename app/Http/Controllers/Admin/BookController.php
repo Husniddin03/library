@@ -39,7 +39,7 @@ class BookController extends Controller
             'audio_time' => 'nullable|date_format:H:i:s',
         ]);
 
-        if ($request->hasFile('book_file')){
+        if ($request->hasFile('book_file')) {
             $path = $request->file('book_file')->store('books/files', 'public');
             $book = Book::create([
                 'name' => $request->name,

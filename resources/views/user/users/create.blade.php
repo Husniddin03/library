@@ -25,8 +25,8 @@
                         <h4 id="log" style="cursor: pointer" onclick="formid(1)" class="section-title">Login</h4>
                     </div>
 
-                    <form id="register" method="POST" action="{{ route('users.store') }}"
-                        class="custom-form contact-form" role="form">
+                    <form id="register" method="POST" action="{{ route('users.store') }}" class="custom-form contact-form"
+                        role="form">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">

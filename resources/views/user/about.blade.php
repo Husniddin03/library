@@ -25,12 +25,17 @@
                             <h4 class="section-title">Our story</h4>
                         </div>
 
-                        <p>In 2022, I became a first-year student at the Samarkand branch of the Tashkent University of Information Technologies. At that time, the only things I truly loved and understood were mathematics and a bit of physics — those were the subjects that sparked my interest and shaped my early academic path.</p>
+                        <p>In 2022, I became a first-year student at the Samarkand branch of the Tashkent University of
+                            Information Technologies. At that time, the only things I truly loved and understood were
+                            mathematics and a bit of physics — those were the subjects that sparked my interest and shaped
+                            my early academic path.</p>
 
-                        <p>Now, in 2025, I am a third-year student at the same university. Over the past few years, I’ve learned the fundamentals of several programming languages. What was once just curiosity has now become my passion — programming has turned into the meaning of my life, the foundation of my dreams, and the source of my daily motivation.</p>
+                        <p>Now, in 2025, I am a third-year student at the same university. Over the past few years, I’ve
+                            learned the fundamentals of several programming languages. What was once just curiosity has now
+                            become my passion — programming has turned into the meaning of my life, the foundation of my
+                            dreams, and the source of my daily motivation.</p>
 
-                        <img src="images/tatusf.png" class="about-image mt-5 img-fluid"
-                            alt="">
+                        <img src="images/tatusf.png" class="about-image mt-5 img-fluid" alt="">
                     </div>
                 </div>
 

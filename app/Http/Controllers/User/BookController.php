@@ -32,7 +32,6 @@ class BookController extends Controller
         $books = Book::where('author_id', $author->id)->orderBy('id', 'desc')->paginate(6);
         $books->load('author', 'images', 'audio', 'category');
         return view('user.books.author', compact('books', 'author'));
-
     }
 
     public function category(string $name)
@@ -80,14 +79,16 @@ class BookController extends Controller
         return redirect()->back();
     }
 
-    public function save() {
+    public function save()
+    {
         $book = Book::findOrFail(request('id'));
         $book->savedBooks()->create([
             'user_id' => auth()->id(),
         ]);
         return redirect()->back();
     }
-    public function unsave() {
+    public function unsave()
+    {
         $book = Book::findOrFail(request('id'));
         $book->savedBooks()->where('user_id', auth()->id())->delete();
         return redirect()->back();
@@ -123,4 +124,12 @@ class BookController extends Controller
         return response()->download($filePath, $filename);
     }
 
+    public function search($name)
+    {
+        $books = Book::where('name', 'like', '%' . $name . '%')
+            ->limit(10)
+            ->get(['id', 'name']); // faqat kerakli ustunlarni tanlash
+
+        return response()->json($books);
+    }
 }

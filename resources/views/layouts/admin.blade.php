@@ -19,6 +19,10 @@
                         href="{{ route('admin.authors.index') }}">Authors</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.books.index') }}">Books</a>
                 </li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ route('admins.index') }}">Admins</a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.logout') }}">Logout</a>
+                </li>
             </ul>
         </div>
 

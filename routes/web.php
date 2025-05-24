@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,12 +26,20 @@ Route::get('/', [PageController::class, 'welcome'])->name('user.welcome');
 Route::get('/about', [PageController::class, 'about'])->name('user.about');
 Route::get('/contact', [PageController::class, 'contact'])->name('user.contact');
 
+Route::get('/auth', [AdminController::class, 'auth'])->name('admin.auth');
+Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
+
+Route::middleware('auth')->group(function () {
+    Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+    Route::resource('admins', AdminController::class);
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('users', UserController::class);
-    Route::resource('authors', AuthorController::class);
-    Route::resource('books', BookController::class);
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('users', UserController::class);
+        Route::resource('authors', AuthorController::class);
+        Route::resource('books', BookController::class);
+    });
 });
 
 Route::post('users/login', [UserUserController::class, 'login'])->name('users.login');

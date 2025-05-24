@@ -44,14 +44,14 @@ https://templatemo.com/tm-584-pod-talk
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand me-lg-5 me-0" href="index.html">
+                <a class="navbar-brand me-lg-5 me-0" href="/">
                     <img src="{{asset('images/logo.png')}}" class="logo-image img-fluid" alt="templatemo pod talk">
                 </a>
 
-                <form action="#" method="get" class="custom-form search-form flex-fill me-3" role="search">
+                <form action="{{route('books.search')}}" method="get" class="custom-form search-form flex-fill me-3" role="search">
                     <div class="input-group input-group-lg">
-                        <input name="search" type="search" class="form-control" id="search"
-                            placeholder="Search Podcast" aria-label="Search">
+                        <input onkeyup="showResult(this.value)" name="search" type="search" class="form-control" id="search"
+                            placeholder="Search Book" aria-label="Search">
 
                         <button type="submit" class="form-control" id="submit">
                             <i class="bi-search"></i>
@@ -71,18 +71,18 @@ https://templatemo.com/tm-584-pod-talk
                         </li>
 
                         <li class="nav-item">
-                            <a id="about" class="nav-link" href="/about">About</a>
+                            <a id="about" class="nav-link" href="{{route('user.about')}}">About</a>
                         </li>
 
                         <li class="nav-item">
-                            <a id="contact" class="nav-link" href="/contact">Contact</a>
+                            <a id="contact" class="nav-link" href="{{route('user.contact')}}">Contact</a>
                         </li>
                     </ul>
 
 
                     @if(auth()->check())
                         <div class="ms-4">
-                            <a href="#" class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
+                            <a href="{{ route('users.edit', auth()->user()->id) }}" class="btn custom-btn custom-border-btn smoothscroll">{{ auth()->user()->name }}</a>
                         </div>
                     @else
                         <div class="ms-4">
@@ -99,30 +99,15 @@ https://templatemo.com/tm-584-pod-talk
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                        <div class="subscribe-form-wrap">
-                            <h6>Subscribe. Every weekly.</h6>
-
-                            <form class="custom-form subscribe-form" action="#" method="get" role="form">
-                                <input type="email" name="subscribe-email" id="subscribe-email"
-                                    pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address"
-                                    required="">
-
-                                <div class="col-lg-12 col-12">
-                                    <button type="submit" class="form-control" id="submit">Subscribe</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
                     <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
                         <h6 class="site-footer-title mb-3">Contact</h6>
 
-                        <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> 010-020-0340</p>
+                        <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> <span> <br>+998 (77) 025 26 77 <br> +998 (93) 129 13 12</span></p>
 
                         <p>
                             <strong class="d-inline me-2">Email:</strong>
-                            <a href="#">inquiry@pod.co</a>
+                            <a href="mailto:husniddin13124041@gmail.com">husniddin13124041@gmail.com</a>
+                            <a href="mailto:husniddin12134041@gmail.com">husniddin12134041@gmail.com</a>
                         </p>
                     </div>
 
@@ -130,31 +115,14 @@ https://templatemo.com/tm-584-pod-talk
                         <h6 class="site-footer-title mb-3">Download Mobile</h6>
 
                         <div class="site-footer-thumb mb-4 pb-2">
-                            <div class="d-flex flex-wrap">
-                                <a href="#">
-                                    <img src="images/app-store.png" class="me-3 mb-2 mb-lg-0 img-fluid"
-                                        alt="">
-                                </a>
-
-                                <a href="#">
-                                    <img src="images/play-store.png" class="img-fluid" alt="">
-                                </a>
-                            </div>
+                            <div class="d-flex flex-wrap">There is no mobile app yet, but it is planned to be developed in the future. </div>
                         </div>
 
                         <h6 class="site-footer-title mb-3">Social</h6>
 
                         <ul class="social-icon">
                             <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-instagram"></a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-twitter"></a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                <a href="https://t.me/Hmatritsa" class="social-icon-link bi-telegram"></a>
                             </li>
                         </ul>
                     </div>
@@ -175,29 +143,17 @@ https://templatemo.com/tm-584-pod-talk
                     <div class="col-lg-7 col-md-9 col-12">
                         <ul class="site-footer-links">
                             <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Homepage</a>
+                                <a href="/" class="site-footer-link">Home</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Browse episodes</a>
+                                <a href="{{route('user.about')}}" class="site-footer-link">About</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Help Center</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Contact Us</a>
+                                <a href="{{route('user.contact')}}" class="site-footer-link">Contact</a>
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-12">
-                        <p class="copyright-text mb-0">Copyright © 2036 Talk Pod Company
-                            <br><br>
-                            Design: <a rel="nofollow" href="https://templatemo.com/page/1"
-                                target="_parent">TemplateMo</a>
-                        </p>
                     </div>
                 </div>
             </div>

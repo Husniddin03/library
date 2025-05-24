@@ -42,5 +42,12 @@ Route::post('books/unlike{id}', [UserBookController::class, 'unlike'])->name('bo
 Route::get('books/download/{id}', [UserBookController::class, 'download'])->name('books.download');
 Route::get('books', [UserBookController::class, 'index'])->name('books.index');
 Route::get('books/{id}', [UserBookController::class, 'show'])->name('books.show');
+Route::get('books/author/{id}', [UserBookController::class, 'author'])->name('books.author');
+Route::get('books/category/{name}', [UserBookController::class, 'category'])->name('books.category');
+Route::post('books/save{id}', [UserBookController::class, 'save'])->name('books.save');
+Route::post('books/unsave{id}', [UserBookController::class, 'unsave'])->name('books.unsave');
+
+Route::get('/books/search', [UserBookController::class, 'search'])->name('books.search');
+
 
 Route::resource('users', UserUserController::class);

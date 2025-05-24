@@ -33,11 +33,11 @@
                             <div class="social-share">
                                 <ul class="social-icon">
                                     <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-book"></a>
+                                        <a href="{{route('books.author', $author->id)}}#authorbooks" class="social-icon-link bi-book"></a>
                                     </li>
 
                                     <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-info-circle"></a>
+                                        <a href="{{route('books.author', $author->id)}}#authorinfo" class="social-icon-link bi-info-circle"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -69,14 +69,14 @@
                         <div class="">
                             <div class="custom-block-icon-wrap">
                                 <div class="section-overlay"></div>
-                                <a href="detail-page.html" class="custom-block-image-wrap">
+                                <a href="{{ asset('storage/'. $book->images->book_img) }}" class="custom-block-image-wrap">
                                     <img src="{{ asset('storage/'. $book->images->book_img) }}" class="custom-block-image img-fluid"
                                         alt="">
                                 </a>
                             </div>
 
                             <div class="mt-2">
-                                <a href="#" class="btn custom-btn">
+                                <a href="{{ asset('storage/' . $book->path) }}" class="btn custom-btn">
                                     Live Read
                                 </a>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="custom-block-top d-flex mb-1">
                                 <small class="me-4">
                                     <i class="bi-clock-fill custom-icon"></i>
-                                    {{ $book->created_at }}
+                                    {{ $book->created_at ? $book->created_at->diffForHumans(): '' }}
                                 </small>
 
                                 <small>Pages <span class="badge">{{ $book->pages }}</span></small>
@@ -98,7 +98,7 @@
                                 </a>
                             </h5>
 
-                            <div class="profile-block d-flex">
+                            <a href="{{route('books.author', $author->id)}}#authorinfo" class="profile-block d-flex">
                                 <img src="{{ asset('storage/' . $book->author->authorImg->author_img) }}"
                                     class="profile-block-image img-fluid" alt="">
 
@@ -107,14 +107,58 @@
                                     <img src="images/verified.png" class="verified-image img-fluid" alt="">
                                     <strong>{{ $book->category->book_category }}</strong>
                                 </p>
-                            </div>
+                            </a>
 
                             <p class="mb-0">{{ substr($book->bio, 0, 80) }}...</p>
 
                             <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <a href="#" class="bi-headphones me-1">
-                                    <span>{{ $book->audio ? count($book->audio) : '0:0' }}</span>
+                                <div class="custom-block1">
+                                    <!-- Shu yerga yuqoridagi kod qo‘yiladi -->
+                                    <a href="#"
+                                class="bi-headphones me-1"
+                                onclick="event.preventDefault(); playAudio('{{ asset('storage/' . ($book->audio->book_audio ?? '')) }}', this);">
+                                <span>{{ $book->audio ? $book->audio->audio_time : '0:0' }}</span>
                                 </a>
+
+                                <div class="audio-player-view mt-2" style="display:none;">
+                                    <audio controls style="width: 100%;">
+                                        @if($book->audio && $book->audio->book_audio)
+                                            <source src="{{ asset('storage/' . $book->audio->book_audio) }}" type="audio/mpeg">
+                                        @endif
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+
+                                <script>
+                                function playAudio(src, trigger) {
+                                    const playerView = trigger.closest('.custom-block1').querySelector('.audio-player-view');
+                                    const audio = playerView.querySelector('audio');
+
+                                    // Boshqa audio'larni to'xtatish
+                                    document.querySelectorAll('.audio-player-view').forEach(view => {
+                                        const a = view.querySelector('audio');
+                                        if (a && a !== audio) {
+                                            a.pause();
+                                            view.style.display = 'none';
+                                        }
+                                    });
+
+                                    if (audio.src !== src) {
+                                        audio.src = src;
+                                    }
+
+                                    if (audio.paused) {
+                                        audio.play();
+                                        playerView.style.display = 'block';
+                                    } else {
+                                        audio.pause();
+                                        playerView.style.display = 'none';
+                                    }
+                                }
+                                </script>
+
+                                </div>
+
 
                                 <form action="{{ route('books.like', $book->id) }}" method="POST" style="display: inline;">
                                     @csrf
@@ -138,13 +182,18 @@
                         </div>
 
                         <div class="d-flex flex-column ms-auto">
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-heart"></i>
-                            </a>
-
-                            <a href="#" class="badge ms-auto">
-                                <i class="bi-bookmark"></i>
-                            </a>
+                            <form action="{{ route('books.save', $book->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @if($book->savedBooks->where('user_id', auth()->id())->count())
+                                    <button type="submit" formaction="{{ route('books.unsave', $book->id) }}" class="badge ms-auto bg-primary border-0">
+                                        <i class="bi-bookmark-fill"></i>
+                                    </button>
+                                @else
+                                    <button type="submit" class="badge ms-auto border-0">
+                                        <i class="bi-bookmark"></i>
+                                    </button>
+                                @endif
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -175,14 +224,9 @@
                 @foreach ($groupedCategories as $category)
                     <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                         <div class="custom-block custom-block-overlay">
-                            <a href="detail-page.html" class="custom-block-image-wrap">
-                                <img src="{{ asset('storage/') }}"
-                                    class="custom-block-image img-fluid" alt="">
-                            </a>
-
                             <div class="custom-block-info custom-block-overlay-info">
                                 <h5 class="mb-1">
-                                    <a href="listing-page.html">
+                                    <a href="{{route('books.category', $category->book_category)}}">
                                         {{ $category->book_category }}
                                     </a>
                                 </h5>

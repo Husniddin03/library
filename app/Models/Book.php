@@ -8,8 +8,6 @@ class Book extends Model
 {
     protected $fillable = ['name', 'path', 'bio', 'pages', 'author_id'];
 
-    public $timestamps = false;
-
     public function author()
     {
         return $this->belongsTo(Author::class);

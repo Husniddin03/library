@@ -7,7 +7,7 @@
 
                 <div class="col-lg-12 col-12 text-center">
 
-                    <h2 class="mb-0">Books Page</h2>
+                    <h2 class="mb-0">{{$author->name}}</h2>
                 </div>
 
             </div>
@@ -15,13 +15,46 @@
     </header>
 
 
-    <section class="latest-podcast-section section-padding" id="section_2">
+    <section class="latest-podcast-section section-padding pb-0" id="section_2">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div id="authorinfo" class="col-lg-10 col-12">
+                    <div class="section-title-wrap mb-5">
+                        <h4 class="section-title">This Author</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-12">
+                            <div class="custom-block-icon-wrap">
+                                <div class="custom-block-image-wrap custom-block-image-detail-page">
+                                    <img src="{{ asset('storage/'. $author->authorImg->author_img) }}"
+                                        class="custom-block-image img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9 col-12">
+                            <div class="custom-block-info">
+                                <h2 class="mb-2">{{ $author->name }}</h2>
+                                <p>{{ $author->bio }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="comments" class="related-podcast-section section-padding">
         <div class="container">
             <div class="row justify-content-center">
 
                 <div class="col-lg-12 col-12">
                     <div class="section-title-wrap mb-5">
-                        <h4 class="section-title">All books</h4>
+                        <h4 id="authorbooks" class="section-title">{{$author->name}} all books</h4>
                     </div>
                 </div>
 
@@ -32,14 +65,14 @@
                         <div class="">
                             <div class="custom-block-icon-wrap">
                                 <div class="section-overlay"></div>
-                                <a href="{{ asset('storage/' . $book->images->book_img) }}" class="custom-block-image-wrap">
+                                <a href="detail-page.html" class="custom-block-image-wrap">
                                     <img src="{{ asset('storage/'. $book->images->book_img) }}" class="custom-block-image img-fluid"
                                         alt="">
                                 </a>
                             </div>
 
                             <div class="mt-2">
-                                <a href="{{ asset('storage/' . $book->path) }}" class="btn custom-btn">
+                                <a href="#" class="btn custom-btn">
                                     Live Read
                                 </a>
                             </div>
@@ -61,7 +94,7 @@
                                 </a>
                             </h5>
 
-                            <a href="{{route('books.author', $book->author->id)}}#authorinfo" class="profile-block d-flex">
+                            <div class="profile-block d-flex">
                                 <img src="{{ asset('storage/' . $book->author->authorImg->author_img) }}"
                                     class="profile-block-image img-fluid" alt="">
 
@@ -70,7 +103,7 @@
                                     <img src="images/verified.png" class="verified-image img-fluid" alt="">
                                     <strong>{{ $book->category->book_category }}</strong>
                                 </p>
-                            </a>
+                            </div>
 
                             <p class="mb-0">{{ substr($book->bio, 0, 80) }}...</p>
 
@@ -163,17 +196,8 @@
 
                 @endforeach
 
-
-
-            </div>
-            <div class="col-lg-4 mt-4 mx-auto">
-                <nav aria-label="Page navigation example">
-                    {{ $books->links('pagination::bootstrap-4') }}
-                </nav>
             </div>
         </div>
     </section>
-
-
     </main>
 @endsection

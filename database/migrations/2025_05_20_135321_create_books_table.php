@@ -12,8 +12,8 @@ return new class extends Migration {
             $table->text('bio')->nullable();
             $table->integer('pages')->nullable();
             $table->unsignedBigInteger('author_id');
-            $table->timestamp('created_at')->nullable();
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

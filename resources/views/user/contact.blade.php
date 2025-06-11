@@ -25,14 +25,14 @@
 
                         <p class="d-flex border-bottom pb-3 mb-4">
                             <strong class="d-inline me-4">Phone:</strong>
-                            <span>+998 (77) 025 26 77</span>
-                            <span>+998 (93) 129 13 12</span>
+                            <span>+998 (77) 025 26 77 </span>
+                            <span> +998 (93) 129 13 12</span>
                         </p>
 
                         <p class="d-flex border-bottom pb-3 mb-4">
                             <strong class="d-inline me-4">Email:</strong>
-                            <a href="mailto:husniddin13124041@gmail.com">husniddin13124041@gmail.com</a>
-                            <a href="mailto:husniddin12134041@gmail.com">husniddin12134041@gmail.com</a>
+                            <a href="mailto:husniddin13124041@gmail.com">husniddin13124041@gmail.com </a>
+                            <a href="mailto:husniddin12134041@gmail.com"> husniddin12134041@gmail.com</a>
                         </p>
 
                         <p class="d-flex">
